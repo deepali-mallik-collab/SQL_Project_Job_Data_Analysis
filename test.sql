@@ -299,37 +299,3 @@ WHERE
     job_title_short = 'Data Analyst'
 ORDER BY 
    salary_year_avg DESC;
-
-/*
-Question:
-- Get the corresponding skill and skill type for each job posting in Q1
-- Include those without any skills, too
-- WHy? Look at the skills and the type for each job in the first quarter that has a salary > $70,000
-*/
-
-SELECT 
-    q1_jobs.job_id,
-    q1_jobs.job_title_short,
-    skills.skills,
-    skills.type
-FROM (
-    SELECT
-        *
-    FROM(
-        SELECT *
-        FROM january_jobs
-        UNION ALL
-        SELECT * 
-        FROM february_jobs
-        UNION ALL
-        SELECT *
-        FROM march_jobs
-    ) AS quarter1_job_postings
-    WHERE
-        salary_year_avg > 70000 AND
-        job_title_short = 'Data Analyst'
-) AS q1_jobs
-LEFT JOIN skills_job_dim AS skills_to_job ON q1_jobs.job_id = skills_to_job.job_id
-LEFT JOIN skills_dim AS skills ON skills_to_job.skill_id = skills.skill_id
-ORDER BY
-    q1_jobs.job_id;
