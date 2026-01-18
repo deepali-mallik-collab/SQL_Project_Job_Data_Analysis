@@ -103,6 +103,7 @@ Here's the breakdown of the most demanded skills for the top 10 highest paying d
 This query helped identify the skills most frequently requested in job postings, directing focus to areas with high demand.
 
 ```sql
+test
 
 ```
 
