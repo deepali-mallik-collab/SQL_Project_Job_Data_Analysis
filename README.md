@@ -163,22 +163,83 @@ Here's the breakdown of the results for top paying skills for Data Analysts:
 - **Cloud Computing Expertise**: Familiarity with cloud and data engineering tools (Elasticsearch, Databricks, GCP) underscores the growing importance of cloud-based analytics environments, suggesting that cloud proficiency significantly boosts earning potential in data analytics.
 
 | **Skills**       |   **Average Salary ($)**    |
-| pyspark          |      7291             |
-| bitbucket        |      4611             |
-| couchbase        |      4330             |
-| watson           |      3745             |
-| datarobot        |      2609             |
-| gitlab           |      7291             |
-| swift            |      4611             |
-| jupyter          |      4330             |
-| pandas           |      3745             |
-| elasticsearch    |      2609             |
+| pyspark          |      7291                   |
+| bitbucket        |      4611                   |
+| couchbase        |      4330                   |
+| watson           |      3745                   |
+| datarobot        |      2609                   |
+| gitlab           |      7291                   |
+| swift            |      4611                   |
+| jupyter          |      4330                   |
+| pandas           |      3745                   |
+| elasticsearch    |      2609                   |
 
 *Table of the average salary for the top 10 paying skills for data analysts*
 
-### 5. 
+### 5. Most Optimal Skills to Learn
+
+Combining insights from demand and salary data, this query aimed to pinpoint skills that are both in high demand and have high salaries, offering a strategic focus for skill development.
+
+```sql
+SELECT
+    skills_dim.skill_id,
+    skills_dim.skills,
+    COUNT(skills_job_dim.job_id) AS demand_count,
+    ROUND(AVG(job_postings_fact.salary_year_avg), 0) AS avg_salary
+FROM
+    job_postings_fact
+INNER JOIN skills_job_dim ON job_postings_fact.job_id = skills_job_dim.job_id
+INNER JOIN skills_dim ON skills_job_dim.skill_id = skills_dim.skill_id
+WHERE
+    job_title_short = 'Data Analyst'
+    AND salary_year_avg IS NOT NULL 
+    AND job_work_from_home = TRUE
+GROUP BY
+    skills_dim.skill_id
+HAVING 
+    COUNT(skills_job_dim.job_id) >10
+ORDER BY
+    avg_salary DESC,
+    demand_count DESC
+LIMIT 25;
+```
+
+| **Skill ID**     |   **Skills**      |  **Demand Count**  |  **Average Salary ($)**   |
+| 8                |      go           |       27           |             115,320       |
+| 234              |      confluence   |       11           |             114,210       |
+| 97               |      hadoop       |       22           |             113,193       |
+| 80               |      snowflake    |       37           |             112,948       |
+| 74               |      azure        |       34           |             111,225       |
+| 77               |      bigquery     |       13           |             109,654       |
+| 76               |      aws          |       32           |             108,317       |
+| 4                |      java         |       17           |             106,906       |   
+| 194              |      ssis         |       12           |             106,683       |
+| 233              |      jira         |       20           |             104,918       |
+
+*Table of the most optimal skills for data analyst sorted by salary*
+
+Here's a breakdown of the most optimal skills for Data Analysts in 2023:
+- **High-Demand Programming Languages**: Python and R stand out for their high demand, with demand counts of 236 and 148 respectively. Despite their high demand, their average salaries are around $101,397 for Python and $100,499 for R, indicating that proficiency in these languages is highly valued but also widely available.
+- **Cloud Tools and Technologies**: Skills in specialized technologies such as Snowflake, Azure, AWS, and BigQuery show significant demand with relatively high average salaries, pointing towards the growing importance of cloud platforms and big data technologies in data analysis.
+- **Business Intelligence and Visualization Tools**: Tableau and Looker, with demand counts 230 and 49 respectively, and average salaries around $99,288 and $103,795, highlight the critical role of data visualization and business intelligence in deriving actionable insights from data.
+- **Database Technologies**: The demand for skills in traditional and NoSQL databases (Oracle, SQL Server, NoSQL) with average salaries ranging from $97,786 to $104,534, reflects the enduring need for data storage, retrieval, and management expertise.
+
 # What I learned
+
+Throughout this adventure, I have turbocharged my SQL toolkit with some serious firepower:
+- **Complex Query Crafting**: Mastered the art of advanced SQL, merging tables like a pro and wielding WITH clauses for ninja-level temp table maneuvers.
+- **Data Aggregation**: Got cozy with GROUP BY and turned aggregate functions like COUNT() and AVG() into my data-summarizing sidekicks.
+- **Analytical Wizardry**: Level up my rea-world puzzle-solving skills, turning questions into actionable, insightful SQL queries.
+
 # Conclusions
+
+**Insights**
+From the analysis, several general insights emerged:
+1. **Top-Paying Data Analyst Jobs**: The highest-paying jobs for data analysts that allow remote work offer a wide range of salaries, the highest at  $650,000!
+2. **Skills for Top-Paying Jobs**: High-paying data analyst jobs require advanced proficiency in SQL, suggesting it's a critical skill for earning a top salary.
+3. **Most In-Demand Skills**: SQL is also the most demanded skill in the data analyst job market, thus making it essential for job seekers.
+4. **Skills with Higher Salaries**: Specialized skills, such as SVN and Solidity, are associated with the highest avreage salaries, indicating a premium on niche expertise.
+5. **Optimal Skills for Job Market Value**: SQL leads in demand and offers a high average salary, positioning it as one of the most optimal skills for data analysts to learn to maximize their market value.
 
 ### Closing Thoughts
 
