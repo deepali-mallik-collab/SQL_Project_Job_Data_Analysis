@@ -133,7 +133,6 @@ Here's the breakdown of the most demanded skills for data analysts in 2023
 | Tableau   | 3745             |
 | Power BI  | 2609             |
 
-
 *Table of the demand for the top 5 skills in data analyst job postings*
 
 ### 4. Skills Based on Salary
@@ -164,17 +163,18 @@ Here's the breakdown of the results for top paying skills for Data Analysts:
 - **Software Development & Deployment Proficiency**: Knowledge in development and deployment tools (GitLab, Kubernetes, Airflow) indicates a lucrative crossover between data analysis and engineering, with a premium on skills that facilitate automation and efficient data pipeline management.
 - **Cloud Computing Expertise**: Familiarity with cloud and data engineering tools (Elasticsearch, Databricks, GCP) underscores the growing importance of cloud-based analytics environments, suggesting that cloud proficiency significantly boosts earning potential in data analytics.
 
-| **Skills**       |   **Average Salary ($)**    |
-| pyspark          |      7291                   |
-| bitbucket        |      4611                   |
-| couchbase        |      4330                   |
-| watson           |      3745                   |
-| datarobot        |      2609                   |
-| gitlab           |      7291                   |
-| swift            |      4611                   |
-| jupyter          |      4330                   |
-| pandas           |      3745                   |
-| elasticsearch    |      2609                   |
+| **Skills**        | **Average Salary ($)** |
+|------------------|-----------------------:|
+| pyspark          | 7291                   |
+| bitbucket        | 4611                   |
+| couchbase        | 4330                   |
+| watson           | 3745                   |
+| datarobot        | 2609                   |
+| gitlab           | 7291                   |
+| swift            | 4611                   |
+| jupyter          | 4330                   |
+| pandas           | 3745                   |
+| elasticsearch    | 2609                   |
 
 *Table of the average salary for the top 10 paying skills for data analysts*
 
@@ -206,17 +206,18 @@ ORDER BY
 LIMIT 25;
 ```
 
-| **Skill ID**     |   **Skills**      |  **Demand Count**  |  **Average Salary ($)**   |
-| 8                |      go           |       27           |             115,320       |
-| 234              |      confluence   |       11           |             114,210       |
-| 97               |      hadoop       |       22           |             113,193       |
-| 80               |      snowflake    |       37           |             112,948       |
-| 74               |      azure        |       34           |             111,225       |
-| 77               |      bigquery     |       13           |             109,654       |
-| 76               |      aws          |       32           |             108,317       |
-| 4                |      java         |       17           |             106,906       |   
-| 194              |      ssis         |       12           |             106,683       |
-| 233              |      jira         |       20           |             104,918       |
+| **Skill ID** | **Skills**    | **Demand Count** | **Average Salary ($)** |
+|-------------:|--------------|-----------------:|-----------------------:|
+| 8            | go           | 27               | 115,320                |
+| 234          | confluence   | 11               | 114,210                |
+| 97           | hadoop       | 22               | 113,193                |
+| 80           | snowflake    | 37               | 112,948                |
+| 74           | azure        | 34               | 111,225                |
+| 77           | bigquery     | 13               | 109,654                |
+| 76           | aws          | 32               | 108,317                |
+| 4            | java         | 17               | 106,906                |
+| 194          | ssis         | 12               | 106,683                |
+| 233          | jira         | 20               | 104,918                |
 
 *Table of the most optimal skills for data analyst sorted by salary*
 
